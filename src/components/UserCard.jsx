@@ -1,33 +1,25 @@
 import React from "react";
 
-export default function UserInfoCard() {
-  const user = {
-    name: "حسین حسینی",
-    role: "مدیر سیستم",
-    phone: "0912459789",
-    id: "4311798624",
-    image: "/path-to-profile.jpg",
-  };
-
+export default function UserInfoCard({ name, role, phone, id, image }) {
   return (
     <div className="">
       <div className="">
-        <img src={user.image} alt="User Profile" className="" />
+        <img src={image} alt={`${name}'s profile`} className="" />
       </div>
 
       <div className="">
-        <h2 className="">{user.name}</h2>
-        <p className="">{user.role}</p>
+        <h2 className="">{name}</h2>
+        <p className="">{role}</p>
       </div>
 
       <div className="">
         <div className="">
-          <span className="">ارتباط: </span>
-          <span className="">{user.phone}</span>
+          <span className="">شماره تماس:</span>
+          <span className="">{phone}</span>
         </div>
         <div className="">
-          <span className="">نام کاربری:</span>
-          <span className="">{user.id}</span>
+          <span className="">شناسه کاربر:</span>
+          <span className="">{id}</span>
         </div>
       </div>
     </div>
