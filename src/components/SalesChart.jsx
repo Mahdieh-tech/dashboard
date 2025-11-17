@@ -7,6 +7,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  CartesianGrid,
 } from "recharts";
 import { Download } from "lucide-react";
 
@@ -34,43 +35,103 @@ export default function SalesChart() {
   };
 
   return (
-    <div dir="rtl">
-      <div className="">
-        <h2 className="">بررسی مخارج</h2>
+    <div
+      dir="rtl"
+      className="bg-white rounded-2xl shadow-md p-6 fixed w-200 border border-gray-100"
+    >
+      {/* Header */}
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-xl font-semibold text-gray-800">بررسی مخارج</h2>
 
         <div className="relative">
           <button
             onClick={() => setShowDownload((prev) => !prev)}
-            className=""
+            className="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-xl text-gray-700 text-sm transition"
           >
             <Download size={16} />
             <span>دانلود</span>
           </button>
 
           {showDownload && (
-            <div className="">
-              <button onClick={() => handleDownload("svg")}>SVG</button>
-              <button onClick={() => handleDownload("png")}>PNG</button>
-              <button onClick={() => handleDownload("csv")}>CSV</button>
+            <div className="absolute left-0 mt-2 w-28 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+              <button
+                onClick={() => handleDownload("svg")}
+                className="block w-full text-right px-4 py-2 hover:bg-gray-50 text-sm"
+              >
+                SVG
+              </button>
+              <button
+                onClick={() => handleDownload("png")}
+                className="block w-full text-right px-4 py-2 hover:bg-gray-50 text-sm"
+              >
+                PNG
+              </button>
+              <button
+                onClick={() => handleDownload("csv")}
+                className="block w-full text-right px-4 py-2 hover:bg-gray-50 text-sm"
+              >
+                CSV
+              </button>
             </div>
           )}
         </div>
       </div>
 
-      <ResponsiveContainer width="100%" height={350}>
-        <BarChart data={data}>
-          <XAxis dataKey="month" />
-          <YAxis tickFormatter={(value) => `${value / 1000000}میلیون`} />
-          <Tooltip
-            formatter={(value) =>
-              `${value.toLocaleString()} تومان`
-            }
-          />
-          <Legend />
-          <Bar dataKey="income" name="درآمد" />
-          <Bar dataKey="expense" name="مخارج" />
-        </BarChart>
-      </ResponsiveContainer>
+      {/* Chart */}
+      <div className="h-[350px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            data={[...data].reverse()} // Reverse for RTL direction
+            margin={{ top: 10, right: 0, left: 0, bottom: 10 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+            <XAxis
+              dataKey="month"
+              tick={{ fill: "#6b7280", fontSize: 12 }}
+              axisLine={false}
+              tickLine={false}
+              reversed 
+            />
+            <YAxis
+              tickFormatter={(value) => `${value / 1000000}M`}
+              tick={{ fill: "#6b7280", fontSize: 12 }}
+              axisLine={false}
+              tickLine={false}
+            />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#fff",
+                borderRadius: "10px",
+                border: "1px solid #e5e7eb",
+                direction: "rtl",
+              }}
+              formatter={(value) => `${value.toLocaleString()} تومان`}
+              labelStyle={{ direction: "rtl" }}
+            />
+            <Legend
+              wrapperStyle={{ direction: "rtl" }}
+              iconType="circle"
+              verticalAlign="top"
+              align="right"
+              height={30}
+            />
+            <Bar
+              dataKey="income"
+              name="درآمد"
+              fill="#4f46e5"
+              radius={[8, 8, 0, 0]}
+              barSize={14}
+            />
+            <Bar
+              dataKey="expense"
+              name="مخارج"
+              fill="#a78bfa"
+              radius={[8, 8, 0, 0]}
+              barSize={14}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }

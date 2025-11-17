@@ -11,11 +11,14 @@ export default function Cards() {
   ];
 
   return (
-    <div className="">
+    <div dir="rtl" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {cardsData.map((card, index) => (
-        <div key={index} className="">
-          <h3 className="">{card.title}</h3>
-          <p className="">{card.value}</p>
+        <div
+          key={index}
+          className="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-lg"
+        >
+          <h3 className="text-gray-500 font-medium text-sm mb-2">{card.title}</h3>
+          <p className="text-gray-800 font-semibold text-2xl">{card.value}</p>
         </div>
       ))}
     </div>
