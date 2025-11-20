@@ -15,7 +15,7 @@ export default function Dashboard() {
       cards={<Card />}
       stats={<StatsCard />}
       chart={<SalesChart />}
-      user={<UserCard />}
+      user={<UserCard role={"ادمین"} name={"مهدیه آقایی"} />}
       checks={<ChecksSection />}
     />
   );

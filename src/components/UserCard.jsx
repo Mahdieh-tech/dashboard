@@ -1,8 +1,14 @@
 import React from "react";
-import userImage from '../assets/user.png';
+import userImage from "../assets/user.png";
 
-
-export default function UserInfoCard({ name, role, phone, id, image, className }) {
+export default function UserInfoCard({
+  name,
+  role,
+  phone,
+  id,
+  image,
+  className,
+}) {
   return (
     <div
       dir="rtl"
@@ -17,8 +23,8 @@ export default function UserInfoCard({ name, role, phone, id, image, className }
       </div>
 
       <div className=" mt-1">
-        <h2 className="text-gray-800 font-semibold text-lg tracking-tight">{"name"}</h2>
-        <p className="text-gray-500 text-sm font-medium">{"role"}</p>
+        <h2 className="text-gray-800 font-semibold text-lg tracking-tight">{name}</h2>
+        <p className="text-gray-500 text-sm font-medium">{role} </p>
       </div>
 
       <div className="w-full h-px bg-gray-100 mt-1 mb-4" />
