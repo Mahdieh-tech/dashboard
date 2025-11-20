@@ -5,20 +5,20 @@ export default function Header({ className = "" }) {
   return (
     <header
       dir="rtl"
-      className={` flex items-center justify-between px-6 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 z-50 ${className}`}
+      className={` flex items-center justify-between px-6 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 z-50 ${className}`}
     >
-      <div>
+      {/* <div>
         <h1 className="text-gray-800 text-xl font-semibold">
           سلام، کاربر 👋
         </h1>
         <p className="text-gray-400 text-sm">به داشبورد مالی خود خوش آمدید</p>
-      </div>
+      </div> */}
 
       <div className="flex items-center w-1/3 relative">
         <input
           type="text"
           placeholder="جستجو..."
-          className="w-full pr-10 pl-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-700 placeholder-gray-400 text-sm text-right"
+          className="w-full pr-10 pl-4 py-2 rounded-full bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-700 placeholder-gray-400 text-sm text-right"
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"

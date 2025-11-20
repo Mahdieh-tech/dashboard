@@ -12,11 +12,11 @@ import {
   LogOut,
 } from "lucide-react";
 
-export default function Sidebar({ className }) {
+export default function Sidebar({ className = "" }) {
   return (
     <aside
       dir="rtl"
-      className={`bg-white border-r border-gray-100 shadow-sm flex flex-col justify-between rounded-l-2xl ${className}`}
+      className={`h-screen bg-white border-r border-gray-100 shadow-sm flex flex-col justify-between rounded-l-2xl ${className}`}
     >
       <div>
         <div className="px-6 py-6 border-b border-gray-100 flex items-center justify-between">
@@ -27,7 +27,11 @@ export default function Sidebar({ className }) {
 
         <div className="px-4 py-4 space-y-6">
           <div className="space-y-1">
-            <SidebarItem icon={<LayoutDashboard size={18} />} label="داشبورد" active />
+            <SidebarItem
+              icon={<LayoutDashboard size={18} />}
+              label="داشبورد"
+              active
+            />
             <SidebarItem icon={<Users size={18} />} label="کاربران" />
             <SidebarItem icon={<UserSquare2 size={18} />} label="مشتریان" />
             <SidebarItem icon={<Briefcase size={18} />} label="طرف حساب‌ها" />
@@ -44,16 +48,15 @@ export default function Sidebar({ className }) {
 
           <hr className="border-gray-100" />
 
-          <div className="space-y-1">
+          <div className="space-y-1 ">
             <SidebarItem icon={<Settings size={18} />} label="تنظیمات" />
             <SidebarItem icon={<UserSquare2 size={18} />} label="حساب کاربری" />
-            <SidebarItem icon={<LogOut size={18} />} label="خروج" />
+            <div className="mt-15">
+              {" "}
+              <SidebarItem icon={<LogOut size={18} />} label="خروج" />
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="px-6 py-4 border-t border-gray-100 text-center text-xs text-gray-400">
-        © 2025 Flow Inc.
       </div>
     </aside>
   );
@@ -62,7 +65,7 @@ export default function Sidebar({ className }) {
 function SidebarItem({ icon, label, active }) {
   return (
     <button
-      className={`flex flex-row-reverse items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
+      className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
         ${
           active
             ? "bg-indigo-50 text-indigo-600"

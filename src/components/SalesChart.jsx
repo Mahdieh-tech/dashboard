@@ -37,7 +37,7 @@ export default function SalesChart({ className = "" }) {
   return (
     <div
       dir="rtl"
-      className={`bg-white rounded-2xl shadow-md p-6 w-full border border-gray-100 ${className}`}
+      className={`bg-white rounded-2xl shadow-md p-3 w-full border border-gray-100 ${className}`}
     >
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold text-gray-800">بررسی مخارج</h2>
@@ -118,14 +118,14 @@ export default function SalesChart({ className = "" }) {
               name="درآمد"
               fill="#4f46e5"
               radius={[8, 8, 0, 0]}
-              barSize={14}
+              barSize={12}
             />
             <Bar
               dataKey="expense"
               name="مخارج"
               fill="#a78bfa"
               radius={[8, 8, 0, 0]}
-              barSize={14}
+              barSize={12}
             />
           </BarChart>
         </ResponsiveContainer>

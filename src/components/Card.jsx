@@ -13,12 +13,12 @@ export default function Cards({ className = "" }) {
   return (
     <div
       dir="rtl"
-      className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 ${className}`}
+      className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-2 ${className}`}
     >
       {cardsData.map((card, index) => (
         <div
           key={index}
-          className="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-lg"
+          className="bg-white rounded-2xl shadow-md p-3 flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-lg"
         >
           <h3 className="text-gray-500 font-medium text-sm mb-2">{card.title}</h3>
           <p className="text-gray-800 font-semibold text-2xl">{card.value}</p>
