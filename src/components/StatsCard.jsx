@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Stats({ totalDays = 90, daysLeft = 34 }) {
+export default function Stats({ totalDays = 90, daysLeft = 34, className }) {
   const r = 45;
   const cx = 50;
   const cy = 50;
@@ -11,11 +11,9 @@ export default function Stats({ totalDays = 90, daysLeft = 34 }) {
   return (
     <div
       dir="rtl"
-      className="bg-white rounded-2xl shadow-md p-6 w-full flex flex-col items-center"
+      className={`h-[290px] bg-white rounded-2xl shadow-md p-6 w-full flex flex-col items-center ${className}`}
     >
-      {/* Chart */}
       <svg viewBox="0 0 100 100" width="120" height="120">
-        {/* Background Circle */}
         <circle
           cx={cx}
           cy={cy}
@@ -25,7 +23,6 @@ export default function Stats({ totalDays = 90, daysLeft = 34 }) {
           strokeWidth="10"
         />
 
-        {/* Progress Circle */}
         <circle
           cx={cx}
           cy={cy}
@@ -39,7 +36,6 @@ export default function Stats({ totalDays = 90, daysLeft = 34 }) {
           transform={`rotate(-90 ${cx} ${cy})`}
         />
 
-        {/* Center Text */}
         <text
           x="50"
           y="50"

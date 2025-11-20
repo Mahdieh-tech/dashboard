@@ -3,7 +3,7 @@ import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 
-export default function ChecksSection() {
+export default function ChecksSection({ className = "" }) {
   const [selectedDate, setSelectedDate] = useState(null);
 
   const transactions = [
@@ -15,9 +15,8 @@ export default function ChecksSection() {
   return (
     <div
       dir="rtl"
-      className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 w-full"
+      className={`bg-white rounded-2xl shadow-md border border-gray-100 p-6 w-full ${className}`}
     >
-      {/* Header */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-4">
         <h2 className="text-xl font-semibold text-gray-800">تاریخچه تراکنش‌ها</h2>
         <div className="flex gap-2">
@@ -35,7 +34,6 @@ export default function ChecksSection() {
         </div>
       </div>
 
-      {/* Table Header */}
       <div className="grid grid-cols-4 text-gray-500 text-sm font-medium border-b border-gray-100 pb-2 mb-2">
         <div className="text-right">عنوان</div>
         <div className="text-right">مبلغ (تومان)</div>
@@ -43,7 +41,6 @@ export default function ChecksSection() {
         <div className="text-right">وضعیت</div>
       </div>
 
-      {/* Table Rows */}
       <div className="space-y-2">
         {transactions.map((tx, index) => (
           <div

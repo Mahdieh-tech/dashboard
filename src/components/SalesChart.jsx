@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import { Download } from "lucide-react";
 
-export default function SalesChart() {
+export default function SalesChart({ className = "" }) {
   const data = [
     { month: "فروردین", income: 5500000, expense: 3200000 },
     { month: "اردیبهشت", income: 7200000, expense: 4100000 },
@@ -37,9 +37,8 @@ export default function SalesChart() {
   return (
     <div
       dir="rtl"
-      className="bg-white rounded-2xl shadow-md p-6 fixed w-200 border border-gray-100"
+      className={`bg-white rounded-2xl shadow-md p-6 w-full border border-gray-100 ${className}`}
     >
-      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold text-gray-800">بررسی مخارج</h2>
 
@@ -77,11 +76,10 @@ export default function SalesChart() {
         </div>
       </div>
 
-      {/* Chart */}
-      <div className="h-[350px]">
+      <div className="h-[170px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
-            data={[...data].reverse()} // Reverse for RTL direction
+            data={[...data].reverse()}
             margin={{ top: 10, right: 0, left: 0, bottom: 10 }}
           >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -90,7 +88,7 @@ export default function SalesChart() {
               tick={{ fill: "#6b7280", fontSize: 12 }}
               axisLine={false}
               tickLine={false}
-              reversed 
+              reversed
             />
             <YAxis
               tickFormatter={(value) => `${value / 1000000}M`}

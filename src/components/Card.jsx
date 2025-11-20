@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Cards() {
+export default function Cards({ className = "" }) {
   const cardsData = [
     { title: "خدمات تحویل داده شده", value: "44" },
     { title: "خدمات درحال انجام", value: "34" },
@@ -11,7 +11,10 @@ export default function Cards() {
   ];
 
   return (
-    <div dir="rtl" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div
+      dir="rtl"
+      className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 ${className}`}
+    >
       {cardsData.map((card, index) => (
         <div
           key={index}

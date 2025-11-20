@@ -1,13 +1,12 @@
 import React from "react";
 import { Bell, User, Sun } from "lucide-react";
 
-export default function Header() {
+export default function Header({ className = "" }) {
   return (
     <header
       dir="rtl"
-      className="sticky top-0 z-50 flex-1 flex items-center justify-between px-6 py-4 bg-white rounded-2xl shadow-sm border border-gray-100"
+      className={` flex items-center justify-between px-6 py-4 bg-white rounded-2xl shadow-sm border border-gray-100 z-50 ${className}`}
     >
-      {/* Greeting */}
       <div>
         <h1 className="text-gray-800 text-xl font-semibold">
           سلام، کاربر 👋
@@ -15,7 +14,6 @@ export default function Header() {
         <p className="text-gray-400 text-sm">به داشبورد مالی خود خوش آمدید</p>
       </div>
 
-      {/* Search bar */}
       <div className="flex items-center w-1/3 relative">
         <input
           type="text"
@@ -38,7 +36,6 @@ export default function Header() {
         </svg>
       </div>
 
-      {/* Icons */}
       <div className="flex items-center gap-3">
         <IconButton icon={<Sun size={18} />} label="تغییر تم" />
         <IconButton icon={<Bell size={18} />} label="اعلان‌ها" />
