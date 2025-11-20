@@ -7,13 +7,6 @@ export default function Header({ className = "" }) {
       dir="rtl"
       className={` flex items-center justify-between px-6 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 z-50 ${className}`}
     >
-      {/* <div>
-        <h1 className="text-gray-800 text-xl font-semibold">
-          سلام، کاربر 👋
-        </h1>
-        <p className="text-gray-400 text-sm">به داشبورد مالی خود خوش آمدید</p>
-      </div> */}
-
       <div className="flex items-center w-1/3 relative">
         <input
           type="text"
