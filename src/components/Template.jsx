@@ -18,16 +18,16 @@ export default function Template({
         h-full 
         pl-3
 
-        lg:grid-cols-12
+        md:grid-cols-12
       "
     >
-      <div className="lg:col-span-10">{header}</div>
-      <div className="lg:col-span-2 lg:row-span-4">{sidebar}</div>
-      <div className="lg:col-span-3">{user}</div>
-      <div className="lg:col-span-7">{chart}</div>
-      <div className="lg:col-span-10">{cards}</div>
-      <div className="lg:col-span-2">{stats}</div>
-      <div className="lg:col-span-8">{checks}</div>
+      <div className="md:col-span-10">{header}</div>
+      <div className="md:col-span-2 md:row-span-4">{sidebar}</div>
+      <div className="md:col-span-3">{user}</div>
+      <div className="md:col-span-7">{chart}</div>
+      <div className="md:col-span-10">{cards}</div>
+      <div className="md:col-span-2">{stats}</div>
+      <div className="md:col-span-8">{checks}</div>
     </div>
   );
 }
