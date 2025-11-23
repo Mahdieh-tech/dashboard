@@ -13,7 +13,7 @@ export default function Cards({ className = "" }) {
   return (
     <div
       dir="rtl"
-      className={`grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-2 ${className}`}
+      className={`grid grid-cols-3 lg:grid-cols-6 gap-2 ${className}`}
     >
       {cardsData.map((card, index) => (
         <div

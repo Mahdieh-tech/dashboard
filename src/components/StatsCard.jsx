@@ -11,7 +11,7 @@ export default function Stats({ totalDays = 90, daysLeft = 34, className }) {
   return (
     <div
       dir="rtl"
-      className={`h-full bg-white rounded-2xl shadow-md p-0 w-full flex flex-col items-center justify-center ${className}`}
+      className={`h-full bg-white rounded-2xl shadow-md p-0 w-full hidden lg:flex flex-col items-center justify-center ${className}`}
     >
       <svg viewBox="0 0 100 100" width="130" height="130">
         <circle

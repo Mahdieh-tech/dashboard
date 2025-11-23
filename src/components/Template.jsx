@@ -21,13 +21,13 @@ export default function Template({
         lg:grid-cols-12
       "
     >
-      <div className="lg:col-span-10">{header}</div>
-      <div className="lg:col-span-2 lg:row-span-4">{sidebar}</div>
-      <div className="lg:col-span-3">{user}</div>
-      <div className="lg:col-span-7">{chart}</div>
-      <div className="lg:col-span-10">{cards}</div>
-      <div className="lg:col-span-2">{stats}</div>
-      <div className="lg:col-span-8">{checks}</div>
+      <div className="order-1 lg:col-span-10">{header}</div>
+      <div className="order-2 lg:col-span-2 lg:row-span-4">{sidebar}</div>
+      <div className="order-3 lg:col-span-3">{user}</div>
+      <div className="order-4 lg:col-span-7">{chart}</div>
+      <div className="order-5 lg:col-span-10">{cards}</div>
+      <div className="order-6 lg:col-span-2">{stats}</div>
+      <div className="order-7 lg:col-span-8">{checks}</div>
     </div>
   );
 }

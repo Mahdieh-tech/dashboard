@@ -12,7 +12,7 @@ export default function UserInfoCard({
   return (
     <div
       dir="rtl"
-      className={`h-[256px] bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl shadow-md p-5  w-full  flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-lg ${className}`}
+      className={`h-[256px] bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl shadow-md p-5  w-full  hidden lg:flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-lg ${className}`}
     >
       <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-indigo-100 shadow-sm">
         <img
