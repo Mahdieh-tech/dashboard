@@ -12,7 +12,8 @@ export default function Template({
       className="
         grid 
         grid-cols-1
-        gap-3 
+        gap-1
+        lg:gap-3
         bg-gray-100/70 
         p-0 
         h-full 

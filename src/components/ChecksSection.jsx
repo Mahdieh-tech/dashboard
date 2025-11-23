@@ -31,7 +31,7 @@ export default function ChecksSection({ className = "" }) {
         <h2 className="text-xl font-semibold text-gray-800">
           تاریخچه تراکنش‌ها
         </h2>
-        <div className="flex gap-2">
+        <div className="flex gap-2 justify-end">
           <DatePicker
             calendar={persian}
             locale={persian_fa}

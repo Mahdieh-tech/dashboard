@@ -80,7 +80,7 @@ export default function SalesChart({ className = "" }) {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={[...data].reverse()}
-            margin={{ top: 10, right: 0, left: 0, bottom: 10 }}
+            margin={{ top: 10, right: 0, left: -5, bottom: 0 }}
           >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
             <XAxis
@@ -91,10 +91,11 @@ export default function SalesChart({ className = "" }) {
               reversed
             />
             <YAxis
-              tickFormatter={(value) => `${value / 1000000}M`}
-              tick={{ fill: "#6b7280", fontSize: 12 }}
+              tickFormatter={(value) => `${value / 1000000}تومان`}
+              tick={{ fill: "#6b7280", fontSize: 11 }}
               axisLine={false}
               tickLine={false}
+               tickMargin={40}
             />
             <Tooltip
               contentStyle={{
