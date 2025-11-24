@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Template from "../components/Template";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
@@ -8,9 +9,18 @@ import StatsCard from "../components/StatsCard";
 import ChecksSection from "../components/ChecksSection";
 
 export default function Dashboard() {
-   return (
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  return (
     <Template
-      header={<Header />}
+      isSidebarOpen={isSidebarOpen}
+      setIsSidebarOpen={setIsSidebarOpen}
+      header={
+        <Header
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
+      }
       sidebar={<Sidebar />}
       cards={<Card />}
       stats={<StatsCard />}

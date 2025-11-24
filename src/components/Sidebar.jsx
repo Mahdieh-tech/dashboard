@@ -16,7 +16,7 @@ export default function Sidebar({ className = "" }) {
   return (
     <aside
       dir="rtl"
-      className={`h-screen bg-white border-r border-gray-100 shadow-sm hidden lg:flex flex-col justify-between rounded-l-2xl ${className}`}
+      className={`h-screen bg-white border-r border-gray-100 shadow-sm  flex-col justify-between rounded-l-2xl ${className}`}
     >
       <div>
         <div className="px-6 py-6 border-b border-gray-100 flex items-center justify-between">

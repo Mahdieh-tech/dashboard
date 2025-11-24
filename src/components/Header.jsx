@@ -1,13 +1,21 @@
 import React from "react";
 import { Bell, User, Sun } from "lucide-react";
 
-export default function Header({ className = "" }) {
+export default function Header({
+  isSidebarOpen,
+  setIsSidebarOpen,
+  className = "",
+}) {
   return (
     <header
       dir="rtl"
       className={` flex items-center justify-between px-6 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 z-50 ${className}`}
     >
-      <button id="menu-btn" class="lg:hidden p-2 rounded-md hover:bg-gray-200">
+      <button
+        onClick={() => setIsSidebarOpen((prev) => !prev)}
+        id="menu-btn"
+        className="lg:hidden p-2 rounded-md hover:bg-gray-200"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -28,7 +36,10 @@ export default function Header({ className = "" }) {
         <input
           type="text"
           placeholder="جستجو..."
-          className="w-full pr-10 pl-4 py-2 rounded-full bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-700 placeholder-gray-400 text-sm text-right"
+          className="w-full pr-10 pl-4 py-2 rounded-full 
+          bg-gray-50 border border-gray-200 focus:ring-2 
+          focus:ring-indigo-500 focus:outline-none text-gray-700 
+          placeholder-gray-400 text-sm text-right"
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
