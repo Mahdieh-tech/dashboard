@@ -32,7 +32,7 @@ export default function Header({
         </svg>
       </button>
 
-      <div className="flex items-center w-1/3 relative">
+      <div className="flex items-center w-1/2 lg:w-1/3 relative">
         <input
           type="text"
           placeholder="جستجو..."

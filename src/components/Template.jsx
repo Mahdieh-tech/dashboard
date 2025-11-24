@@ -28,7 +28,8 @@ export default function Template({
   }, [isSidebarOpen, setIsSidebarOpen]);
 
   return (
-    <div className="grid grid-cols-1 gap-1 lg:gap-3 bg-gray-100/70 p-0 h-full pl-3 lg:grid-cols-12">
+    <div className="grid grid-cols-1 gap-1 lg:gap-3 bg-gray-100/70 p-0 h-full pl-1 pr-1 lg:pl-2.5 lg:grid-cols-12">
+      
       <div className="order-1 lg:col-span-10">{header}</div>
 
       {isSidebarOpen && (
