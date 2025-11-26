@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BarChart,
   Bar,
@@ -12,6 +12,17 @@ import {
 import { Download } from "lucide-react";
 
 export default function SalesChart({ className = "" }) {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.matchMedia("(max-width: 640px)").matches);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
   const data = [
     { month: "فروردین", income: 5500000, expense: 3200000 },
     { month: "اردیبهشت", income: 7200000, expense: 4100000 },
@@ -80,21 +91,31 @@ export default function SalesChart({ className = "" }) {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={[...data].reverse()}
-            margin={{ top: 10, right: 0, left: 0, bottom: 10 }}
+            margin={{ top: 10, right: 0, left: -5, bottom: 0 }}
           >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
             <XAxis
               dataKey="month"
-              tick={{ fill: "#6b7280", fontSize: 12 }}
+              tick={{
+                fill: "#6b7280",
+                fontSize: 11,
+                dy: isSmallScreen ? 8 : 0,
+                dx: isSmallScreen ? -20 : 0,
+              }}
               axisLine={false}
               tickLine={false}
+              interval={0}
+              angle={isSmallScreen ? -45 : 0}
+              textAnchor={isSmallScreen ? "end" : "middle"}
               reversed
             />
+
             <YAxis
-              tickFormatter={(value) => `${value / 1000000}M`}
-              tick={{ fill: "#6b7280", fontSize: 12 }}
+              tickFormatter={(value) => `${value / 1000000}تومان`}
+              tick={{ fill: "#6b7280", fontSize: 11 }}
               axisLine={false}
               tickLine={false}
+              tickMargin={40}
             />
             <Tooltip
               contentStyle={{
