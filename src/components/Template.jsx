@@ -10,6 +10,7 @@ export default function Template({
   checks,
   isSidebarOpen,
   setIsSidebarOpen,
+  DarkTest,
 }) {
   const sidebarRef = useRef();
 
@@ -53,6 +54,9 @@ export default function Template({
       <div className="hidden lg:block order-2 lg:col-span-2 lg:row-span-4">
         {sidebar}
       </div>
+      {/* <div>
+      {DarkTest}
+    </div> */}
 
       <div className="order-3 lg:col-span-3">{user}</div>
       <div className="order-4 lg:col-span-7">{chart}</div>
