@@ -12,25 +12,33 @@ export default function UserInfoCard({
   return (
     <div
       dir="rtl"
-      className={`h-[256px] bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl shadow-md p-5  w-full  hidden lg:flex flex-col items-center text-center transition-transform hover:-translate-y-1 hover:shadow-lg ${className}`}
+      className={`h-full bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl shadow-md p-5 w-full hidden lg:flex flex-col justify-center items-center ${className}`}
     >
-      <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-indigo-100 shadow-sm">
-        <img
-          src={userImage}
-          alt={`${name}'s profile`}
-          className="w-full h-full object-cover"
-        />
+      {/* Top: image + name + role */}
+      <div className="flex flex-col items-center mt-9">
+        {/* Bigger image */}
+        <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-100 shadow-sm">
+          <img
+            src={userImage}
+            alt={`${name}'s profile`}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Name + Role */}
+        <div className="mt-1 text-center mt-6">
+          <h2 className="text-gray-800 font-semibold text-lg tracking-tight">
+            {name}
+          </h2>
+          <p className="text-gray-500 text-sm font-medium mt-1">{role}</p>
+        </div>
       </div>
+      <hr className="w-full border-t border-gray-100 mt-5" />
 
-      <div className=" mt-1">
-        <h2 className="text-gray-800 font-semibold text-lg tracking-tight">{name}</h2>
-        <p className="text-gray-500 text-sm font-medium">{role} </p>
-      </div>
 
-      <div className="w-full h-px bg-gray-100 mt-1 mb-4" />
-
-      <div className="w-full space-y-2 text-sm text-gray-700 ">
-        <div className="flex justify-between ">
+      {/* Bottom: contact info with extra top margin */}
+      <div className="w-full space-y-2 text-sm text-gray-700 mt-4">
+        <div className="flex justify-between">
           <span className="text-gray-500 font-medium">شماره تماس: </span>
           <span className="font-semibold">{phone}</span>
         </div>

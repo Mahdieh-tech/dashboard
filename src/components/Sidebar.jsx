@@ -16,10 +16,10 @@ export default function Sidebar({ className = "" }) {
   return (
     <aside
       dir="rtl"
-      className={`h-screen bg-white border-r border-gray-100 shadow-sm  flex-col justify-between rounded-l-2xl ${className}`}
+      className={`h-screen bg-white  flex-col justify-between ${className}`}
     >
       <div>
-        <div className="px-6 py-6 border-b border-gray-100 flex items-center justify-between">
+        <div className="px-6 py-6  border-gray-100 flex items-center justify-between">
           <h2 className="text-xl font-bold text-indigo-600 tracking-tight">
             Flow<span className="text-gray-800">Finance</span>
           </h2>

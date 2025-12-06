@@ -31,8 +31,8 @@ export default function Header({
   return (
     <header
       dir="rtl"
-      className={`dark:bg-gray-600 flex items-center justify-between 
-        px-6 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 z-50 
+      className={`dark:bg-gray-600 flex items-center justify-between  
+        px-6 py-4.5 bg-white shadow-sm z-50 
         ${className}`}
     >
       <button
@@ -81,7 +81,7 @@ export default function Header({
         </svg>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-1 md:gap-3 lg:gap-3">
         <IconButton
           icon={theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           onClick={toggleTheme}

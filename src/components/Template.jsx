@@ -1,5 +1,3 @@
-import { useRef, useEffect } from "react";
-
 export default function Template({
   header,
   sidebar,
@@ -10,60 +8,54 @@ export default function Template({
   checks,
   isSidebarOpen,
   setIsSidebarOpen,
-  DarkTest,
 }) {
-  const sidebarRef = useRef();
-
-
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        sidebarRef.current &&
-        !sidebarRef.current.contains(event.target) &&
-        isSidebarOpen
-      ) {
-        setIsSidebarOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isSidebarOpen, setIsSidebarOpen]);
-
   return (
-    <div className="grid grid-cols-1 gap-1 lg:gap-3 bg-gray-100/70 p-0 h-full pl-1 pr-1 lg:pl-2.5 lg:grid-cols-12">
-      
-      <div className="order-1 lg:col-span-10">{header}</div>
+    <div className="h-screen overflow-hidden flex bg-gray-100">
+      {/* MAIN AREA (left side) */}
+      <div className="flex-1 flex flex-col h-full lg:mr-64">
+        {/* HEADER */}
+        <header className="fixed top-0 left-0 right-0 lg:right-64 h-16 bg-white shadow z-40">
+          {header}
+        </header>
 
+        {/* SCROLLABLE CONTENT */}
+        <main className="lg:pt-23 pt-19 overflow-y-auto h-full lg:p-4 p-2 ">
+          <div className="grid grid-cols-1 lg:grid-cols-12 auto-rows-min lg:gap-5 gap-2">
+            <section className="lg:col-span-3 order-1">{user}</section>
+
+            <section className="lg:col-span-9 order-2">{chart}</section>
+
+            <section className="lg:col-span-12 order-3">{cards}</section>
+
+            <section className="lg:col-span-3 order-4">{stats}</section>
+
+            <section className="lg:col-span-9 order-5">{checks}</section>
+          </div>
+        </main>
+      </div>
+
+      {/* SIDEBAR DESKTOP – RIGHT SIDE */}
+      <aside className="hidden lg:block fixed right-0 top-0 w-64 h-full bg-white shadow z-50">
+        {sidebar}
+      </aside>
+
+      {/* SIDEBAR MOBILE */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/45 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/40 z-40 lg:hidden"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
-      <div
-        ref={sidebarRef}
+
+      <aside
         className={`
-          fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50
+          lg:hidden fixed top-0 right-0 h-full w-64 bg-white shadow z-50 
           transition-transform duration-300
           ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}
-          lg:hidden
         `}
       >
         {sidebar}
-      </div>
-
-      <div className="hidden lg:block order-2 lg:col-span-2 lg:row-span-4">
-        {sidebar}
-      </div>
-      {/* <div>
-      {DarkTest}
-    </div> */}
-
-      <div className="order-3 lg:col-span-3">{user}</div>
-      <div className="order-4 lg:col-span-7">{chart}</div>
-      <div className="order-5 lg:col-span-10">{cards}</div>
-      <div className="order-6 lg:col-span-2">{stats}</div>
-      <div className="order-7 lg:col-span-8">{checks}</div>
+      </aside>
     </div>
   );
 }

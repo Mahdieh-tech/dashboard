@@ -13,17 +13,22 @@ export default function Cards({ className = "" }) {
   return (
     <div
       dir="rtl"
-      className={`grid grid-cols-3 lg:grid-cols-6 gap-2 ${className}`}
+      className={`h-full grid grid-cols-3 gap-2 ${className}`}
     >
       {cardsData.map((card, index) => (
         <div
           key={index}
-          className="bg-white rounded-2xl shadow-md p-3 flex flex-col justify-between transition-transform hover:-translate-y-1 hover:shadow-lg"
+          className="p-5 bg-white rounded-xl shadow p-0 flex flex-col  justify-center hover:-translate-y-1 hover:shadow-lg transition-transform"
         >
-          <h3 className="text-gray-500 font-medium text-sm mb-2 truncate">
+          {/* Bigger, bolder title */}
+          <h3 className="text-gray-600 font-semibold text-base text-right lg:mr-7">
             {card.title}
           </h3>
-          <p className="text-gray-800 font-semibold text-2xl">{card.value}</p>
+
+          {/* Bigger number, more dominant */}
+          <p className="text-gray-700 font-bold  lg:text-4xl text-3xl m-1 text-left lg:ml-14 md:ml-6 ml-5">
+            {card.value}
+          </p>
         </div>
       ))}
     </div>

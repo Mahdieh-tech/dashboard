@@ -48,7 +48,7 @@ export default function SalesChart({ className = "" }) {
   return (
     <div
       dir="rtl"
-      className={`bg-white rounded-2xl shadow-md p-3 w-full border border-gray-100 ${className}`}
+      className={`bg-white rounded-2xl shadow-md p-3 pr-5 pl-5 w-full border border-gray-100 ${className}`}
     >
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold text-gray-800">بررسی مخارج</h2>
@@ -87,7 +87,7 @@ export default function SalesChart({ className = "" }) {
         </div>
       </div>
 
-      <div className="h-[170px]">
+      <div className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={[...data].reverse()}

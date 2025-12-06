@@ -25,7 +25,7 @@ export default function ChecksSection({ className = "" }) {
   return (
     <div
       dir="rtl"
-      className={`bg-white rounded-2xl shadow-md border border-gray-100 p-6 w-full ${className}`}
+      className={`h-full bg-white rounded-2xl shadow-md border border-gray-100 p-6 w-full ${className}`}
     >
       <div className="flex flex-col flex-row justify-between items-center mb-6 gap-4">
         <h2 className="text-xl font-semibold text-gray-800">
