@@ -40,8 +40,12 @@ export default function Sidebar({ className = "" }) {
             icon={<LayoutDashboard size={18} />}
             label="داشبورد"
             isActive={activeMenu === "داشبورد"}
-            onClick={() => setActiveMenu("داشبورد")}
+            onClick={() => {
+              setActiveMenu("داشبورد");
+              setOpenMenu(null);
+            }}
           />
+
           <SidebarItem
             icon={<Users size={18} />}
             label="کاربران"
