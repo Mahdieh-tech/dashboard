@@ -61,8 +61,8 @@ export default function ChecksSection({ className = "" }) {
             key={index}
             className={`grid grid-cols-4 items-center p-3 rounded-xl ${
               index % 2 !== 0
-                ? "bg-gray-50 dark:bg-gray-800"
-                : "bg-white dark:bg-gray-900"
+                ? "bg-white dark:bg-gray-800"
+                : "bg-gray-100 dark:bg-gray-900"
             } shadow-sm`}
           >
             <div className="text-gray-800 dark:text-gray-100 text-sm font-medium text-right">
