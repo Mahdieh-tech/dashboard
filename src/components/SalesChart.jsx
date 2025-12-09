@@ -129,15 +129,23 @@ export default function SalesChart({ className = "" }) {
 
             <Tooltip
               contentStyle={{
-                backgroundColor: "#fff",
-                borderRadius: "10px",
-                border: "1px solid #e5e7eb",
+                backgroundColor: "rgba(255, 255, 255, 0.85)",
+                borderRadius: "12px",
+                backdropFilter: "blur(8px)",
+                border: "1px solid rgba(0, 0, 0, 0.1)",
                 direction: "rtl",
+                padding: "10px 14px",
               }}
-              itemStyle={{ color: "#111" }}
-              labelStyle={{ direction: "rtl" }}
-              wrapperStyle={{
-                color: "#000",
+              itemStyle={{
+                color: "#111827",
+                fontSize: "13px",
+                fontWeight: 500,
+              }}
+              labelStyle={{
+                color: "#4b5563",
+                fontWeight: 600,
+                marginBottom: "6px",
+                direction: "rtl",
               }}
             />
 
