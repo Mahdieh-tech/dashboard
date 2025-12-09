@@ -7,7 +7,6 @@ import UserCard from "../components/UserCard";
 import Card from "../components/Card";
 import StatsCard from "../components/StatsCard";
 import ChecksSection from "../components/ChecksSection";
-// import DarkTest from "../components/DarkTest";
 
 export default function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -22,7 +21,6 @@ export default function Dashboard() {
           setIsSidebarOpen={setIsSidebarOpen}
         />
       }
-      // DarkTest={<DarkTest />}
       sidebar={<Sidebar />}
       cards={<Card />}
       stats={<StatsCard />}

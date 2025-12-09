@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Stats({ totalDays = 90, daysLeft = 34, className }) {
   const r = 45;
   const cx = 50;
@@ -11,7 +9,7 @@ export default function Stats({ totalDays = 90, daysLeft = 34, className }) {
   return (
     <div
       dir="rtl"
-      className={`h-full bg-white rounded-2xl shadow-md p-0 w-full hidden lg:flex flex-col items-center justify-center ${className}`}
+      className={`h-full bg-white dark:bg-gray-800 rounded-2xl shadow-md p-0 w-full hidden lg:flex flex-col items-center justify-center ${className}`}
     >
       <svg viewBox="0 0 100 100" width="130" height="130">
         <circle
@@ -20,6 +18,7 @@ export default function Stats({ totalDays = 90, daysLeft = 34, className }) {
           r={r}
           fill="none"
           stroke="#e5e7eb"
+          className="dark:stroke-gray-700"
           strokeWidth="10"
         />
 
@@ -29,6 +28,7 @@ export default function Stats({ totalDays = 90, daysLeft = 34, className }) {
           r={r}
           fill="none"
           stroke="#4f46e5"
+          className="dark:stroke-indigo-500"
           strokeWidth="10"
           strokeLinecap="round"
           strokeDasharray={circumference}
@@ -45,13 +45,17 @@ export default function Stats({ totalDays = 90, daysLeft = 34, className }) {
           fontWeight="600"
           fontFamily="sans-serif"
           fill="#111827"
+          className="dark:fill-gray-100"
         >
           {daysLeft} روز باقی‌مانده
         </text>
       </svg>
 
-      <div className="mt-4 text-gray-500 text-sm text-center">
-        زمان کل سرویس: <span className="font-semibold">{totalDays} روز</span>
+      <div className="mt-4 text-gray-500 dark:text-gray-400 text-sm text-center">
+        زمان کل سرویس:{" "}
+        <span className="font-semibold dark:text-gray-200">
+          {totalDays} روز
+        </span>
       </div>
     </div>
   );

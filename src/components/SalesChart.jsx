@@ -23,6 +23,7 @@ export default function SalesChart({ className = "" }) {
     window.addEventListener("resize", checkScreenSize);
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
+
   const data = [
     { month: "فروردین", income: 5500000, expense: 3200000 },
     { month: "اردیبهشت", income: 7200000, expense: 4100000 },
@@ -48,37 +49,39 @@ export default function SalesChart({ className = "" }) {
   return (
     <div
       dir="rtl"
-      className={`bg-white rounded-2xl shadow-md p-3 pr-5 pl-5 w-full border border-gray-100 ${className}`}
+      className={`bg-white dark:bg-gray-800 rounded-2xl shadow-md p-3 pr-5 pl-5 w-full border border-gray-100 dark:border-gray-700 ${className}`}
     >
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold text-gray-800">بررسی مخارج</h2>
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+          بررسی مخارج
+        </h2>
 
         <div className="relative">
           <button
             onClick={() => setShowDownload((prev) => !prev)}
-            className="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-xl text-gray-700 text-sm transition"
+            className="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl text-gray-700 dark:text-gray-200 text-sm transition"
           >
             <Download size={16} />
             <span>دانلود</span>
           </button>
 
           {showDownload && (
-            <div className="absolute left-0 mt-2 w-28 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+            <div className="absolute left-0 mt-2 w-28 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-10">
               <button
                 onClick={() => handleDownload("svg")}
-                className="block w-full text-right px-4 py-2 hover:bg-gray-50 text-sm"
+                className="block w-full text-right px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm text-gray-700 dark:text-gray-200"
               >
                 SVG
               </button>
               <button
                 onClick={() => handleDownload("png")}
-                className="block w-full text-right px-4 py-2 hover:bg-gray-50 text-sm"
+                className="block w-full text-right px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm text-gray-700 dark:text-gray-200"
               >
                 PNG
               </button>
               <button
                 onClick={() => handleDownload("csv")}
-                className="block w-full text-right px-4 py-2 hover:bg-gray-50 text-sm"
+                className="block w-full text-right px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm text-gray-700 dark:text-gray-200"
               >
                 CSV
               </button>
@@ -93,7 +96,13 @@ export default function SalesChart({ className = "" }) {
             data={[...data].reverse()}
             margin={{ top: 10, right: 0, left: -5, bottom: 0 }}
           >
-            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              vertical={false}
+              strokeOpacity={0.3}
+              className="dark:stroke-gray-600"
+            />
+
             <XAxis
               dataKey="month"
               tick={{
@@ -117,6 +126,7 @@ export default function SalesChart({ className = "" }) {
               tickLine={false}
               tickMargin={40}
             />
+
             <Tooltip
               contentStyle={{
                 backgroundColor: "#fff",
@@ -124,9 +134,13 @@ export default function SalesChart({ className = "" }) {
                 border: "1px solid #e5e7eb",
                 direction: "rtl",
               }}
-              formatter={(value) => `${value.toLocaleString()} تومان`}
+              itemStyle={{ color: "#111" }}
               labelStyle={{ direction: "rtl" }}
+              wrapperStyle={{
+                color: "#000",
+              }}
             />
+
             <Legend
               wrapperStyle={{ direction: "rtl" }}
               iconType="circle"
@@ -134,10 +148,12 @@ export default function SalesChart({ className = "" }) {
               align="right"
               height={30}
             />
+
             <Bar
               dataKey="income"
               name="درآمد"
               fill="#4f46e5"
+              className="dark:fill-indigo-500"
               radius={[8, 8, 0, 0]}
               barSize={12}
             />
@@ -145,6 +161,7 @@ export default function SalesChart({ className = "" }) {
               dataKey="expense"
               name="مخارج"
               fill="#a78bfa"
+              className="dark:fill-indigo-300"
               radius={[8, 8, 0, 0]}
               barSize={12}
             />

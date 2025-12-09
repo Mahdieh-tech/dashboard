@@ -10,15 +10,12 @@ export default function Template({
   setIsSidebarOpen,
 }) {
   return (
-    <div className="h-screen overflow-hidden flex bg-gray-100">
-      {/* MAIN AREA (left side) */}
+    <div className="h-screen overflow-hidden flex bg-gray-100 dark:bg-gray-900">
       <div className="flex-1 flex flex-col h-full lg:mr-64">
-        {/* HEADER */}
         <header className="fixed top-0 left-0 right-0 lg:right-64 h-16 bg-white shadow z-40">
           {header}
         </header>
 
-        {/* SCROLLABLE CONTENT */}
         <main className="lg:pt-23 pt-19 overflow-y-auto h-full lg:p-4 p-2 ">
           <div className="grid grid-cols-1 lg:grid-cols-12 auto-rows-min lg:gap-5 gap-2">
             <section className="lg:col-span-3 order-1">{user}</section>
@@ -34,12 +31,10 @@ export default function Template({
         </main>
       </div>
 
-      {/* SIDEBAR DESKTOP – RIGHT SIDE */}
       <aside className="hidden lg:block fixed right-0 top-0 w-64 h-full bg-white shadow z-50">
         {sidebar}
       </aside>
 
-      {/* SIDEBAR MOBILE */}
       {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black/40 z-40 lg:hidden"

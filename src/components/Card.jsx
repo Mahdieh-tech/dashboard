@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Cards({ className = "" }) {
   const cardsData = [
     { title: "خدمات تحویل شده", value: "44" },
@@ -11,22 +9,17 @@ export default function Cards({ className = "" }) {
   ];
 
   return (
-    <div
-      dir="rtl"
-      className={`h-full grid grid-cols-3 gap-2 ${className}`}
-    >
+    <div dir="rtl" className={`h-full grid grid-cols-3 gap-2 ${className}`}>
       {cardsData.map((card, index) => (
         <div
           key={index}
-          className="p-5 bg-white rounded-xl shadow p-0 flex flex-col  justify-center hover:-translate-y-1 hover:shadow-lg transition-transform"
+          className="p-5 bg-white dark:bg-gray-800 rounded-xl shadow p-0 flex flex-col justify-center hover:-translate-y-1 hover:shadow-lg transition-transform"
         >
-          {/* Bigger, bolder title */}
-          <h3 className="text-gray-600 font-semibold text-base text-right lg:mr-7">
+          <h3 className="text-gray-600 dark:text-gray-300 font-semibold text-base text-right lg:mr-7">
             {card.title}
           </h3>
 
-          {/* Bigger number, more dominant */}
-          <p className="text-gray-700 font-bold  lg:text-4xl text-3xl m-1 text-left lg:ml-14 md:ml-6 ml-5">
+          <p className="text-gray-700 dark:text-gray-100 font-bold lg:text-4xl text-3xl m-1 text-left lg:ml-14 md:ml-6 ml-5">
             {card.value}
           </p>
         </div>

@@ -25,10 +25,10 @@ export default function ChecksSection({ className = "" }) {
   return (
     <div
       dir="rtl"
-      className={`h-full bg-white rounded-2xl shadow-md border border-gray-100 p-6 w-full ${className}`}
+      className={`h-full bg-white dark:bg-gray-800 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 p-6 w-full ${className}`}
     >
       <div className="flex flex-col flex-row justify-between items-center mb-6 gap-4">
-        <h2 className="text-xl font-semibold text-gray-800">
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
           تاریخچه تراکنش‌ها
         </h2>
         <div className="flex gap-2 justify-end ">
@@ -38,7 +38,7 @@ export default function ChecksSection({ className = "" }) {
             value={selectedDate}
             onChange={(date) => setSelectedDate(date)}
             placeholder="انتخاب تاریخ"
-            inputClass="w-full h-[38px] px-4 text-sm border border-gray-300 rounded-lg focus:ring-1 focus:ring-indigo-500"
+            inputClass="w-full h-[38px] px-4 text-sm border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 rounded-lg focus:ring-1 focus:ring-indigo-500"
             className="w-32"
           />
 
@@ -48,7 +48,7 @@ export default function ChecksSection({ className = "" }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 text-gray-500 text-sm font-medium border-b border-gray-100 pb-2 mb-2">
+      <div className="grid grid-cols-4 text-gray-500 dark:text-gray-400 text-sm font-medium border-b border-gray-100 dark:border-gray-700 pb-2 mb-2">
         <div className="text-right">عنوان</div>
         <div className="text-right">مبلغ (تومان)</div>
         <div className="text-right">تاریخ</div>
@@ -60,19 +60,25 @@ export default function ChecksSection({ className = "" }) {
           <div
             key={index}
             className={`grid grid-cols-4 items-center p-3 rounded-xl ${
-              index % 2 === 0 ? "bg-gray-50" : "bg-white"
+              index % 2 === 0
+                ? "bg-gray-50 dark:bg-gray-800"
+                : "bg-white dark:bg-gray-900"
             } shadow-sm`}
           >
-            <div className="text-gray-800 text-sm font-medium text-right">
+            <div className="text-gray-800 dark:text-gray-100 text-sm font-medium text-right">
               {tx.title}
             </div>
-            <div className="text-gray-700 text-sm text-right">
+            <div className="text-gray-700 dark:text-gray-200 text-sm text-right">
               {tx.amount.toLocaleString()}
             </div>
-            <div className="text-gray-500 text-sm text-right">{tx.date}</div>
+            <div className="text-gray-500 dark:text-gray-400 text-sm text-right">
+              {tx.date}
+            </div>
             <div
               className={`text-sm font-semibold text-right ${
-                tx.status === "موفق" ? "text-green-600" : "text-yellow-600"
+                tx.status === "موفق"
+                  ? "text-green-600 dark:text-green-400"
+                  : "text-yellow-600 dark:text-yellow-400"
               }`}
             >
               {tx.status}
