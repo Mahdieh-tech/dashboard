@@ -28,7 +28,7 @@ export default function Sidebar({ className = "" }) {
       dir="rtl"
       className={`h-screen bg-white dark:bg-gray-800 flex flex-col ${className}`}
     >
-      <div className="px-6 py-6 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+      <div className="px-6 py-6 dark:border-gray-700 flex items-center justify-between">
         <h2 className="text-xl font-bold text-indigo-600 dark:text-indigo-400 tracking-tight">
           Flow
           <span className="text-gray-800 dark:text-gray-200">Finance</span>
